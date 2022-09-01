@@ -4,4 +4,4 @@ Vue 3.0 UI library, Designed by [Ant Design](https://github.com/ant-design/ant-d
 
 # License
 
-MIT
+[MIT](https://github.com/roshan-labs/roshan-ui/blob/main/LICENSE)
