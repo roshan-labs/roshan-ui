@@ -5,7 +5,7 @@ async function build() {
   try {
     buildStart()
 
-    await Promise.all([buildPack('es'), buildPack('cjs')])
+    await Promise.all([buildPack('es'), buildPack('cjs'), buildPack('iife')])
   } catch (error) {
     return Promise.reject(error)
   }

@@ -4,6 +4,9 @@
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "build": "tsx scripts/build.ts"
   },
+  "dependencies": {
+    "@vueuse/core": "^9.2.0"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
     "defu": "^6.1.0",

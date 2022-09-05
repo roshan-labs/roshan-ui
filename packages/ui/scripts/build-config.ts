@@ -4,7 +4,14 @@ import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import vue from '@vitejs/plugin-vue'
 import windicss from 'vite-plugin-windicss'
 
-function createBuildConfig(format: 'es' | 'cjs'): InlineConfig {
+import * as pkg from '../package.json'
+
+type Format = 'es' | 'cjs' | 'iife'
+
+const dependencies = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)]
+const external = { external: dependencies }
+
+function createBuildConfig(format: Format): InlineConfig {
   const isESM = ['es'].includes(format)
   const config: InlineConfig = {
     build: {
@@ -13,11 +20,12 @@ function createBuildConfig(format: 'es' | 'cjs'): InlineConfig {
         formats: [format],
         fileName: 'roshan',
         /** iife/umd */
-        name: 'roshan',
+        name: 'Roshan',
       },
+      rollupOptions: external,
       outDir: `dist/${format}`,
       sourcemap: true,
-      cssCodeSplit: isESM,
+      cssCodeSplit: false,
       minify: 'terser',
       terserOptions: {
         keep_fnames: true,
@@ -36,7 +44,7 @@ function createBuildConfig(format: 'es' | 'cjs'): InlineConfig {
   return config
 }
 
-export async function buildPack(format: 'es' | 'cjs') {
+export async function buildPack(format: Format) {
   try {
     await build(createBuildConfig(format))
   } catch (error) {
