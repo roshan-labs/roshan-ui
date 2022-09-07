@@ -2,27 +2,35 @@ import { fileURLToPath } from 'node:url'
 import { build, InlineConfig } from 'vite'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import vue from '@vitejs/plugin-vue'
-import windicss from 'vite-plugin-windicss'
 
 import * as pkg from '../package.json'
-
-type Format = 'es' | 'cjs' | 'iife'
 
 const dependencies = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)]
 const external = { external: dependencies }
 
-function createBuildConfig(format: Format): InlineConfig {
+export function createBuildConfig(format: 'cjs' | 'iife' | 'es'): InlineConfig {
   const isESM = ['es'].includes(format)
   const config: InlineConfig = {
     build: {
       lib: {
         entry: fileURLToPath(new URL('../src/index.ts', import.meta.url)),
         formats: [format],
-        fileName: 'roshan',
+        fileName: 'index',
         /** iife/umd */
         name: 'Roshan',
       },
-      rollupOptions: external,
+      rollupOptions:
+        format === 'iife'
+          ? {
+              ...external,
+              output: {
+                globals: {
+                  vue: 'Vue',
+                },
+              },
+            }
+          : external,
+      reportCompressedSize: false,
       outDir: `dist/${format}`,
       sourcemap: true,
       cssCodeSplit: false,
@@ -35,7 +43,6 @@ function createBuildConfig(format: Format): InlineConfig {
       vue({
         isProduction: true,
       }),
-      windicss(),
     ],
   }
 
@@ -44,9 +51,9 @@ function createBuildConfig(format: Format): InlineConfig {
   return config
 }
 
-export async function buildPack(format: Format) {
+export async function buildPack(config: InlineConfig) {
   try {
-    await build(createBuildConfig(format))
+    await build(config)
   } catch (error) {
     return Promise.reject(error)
   }

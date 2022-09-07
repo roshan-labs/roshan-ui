@@ -1,14 +1,13 @@
-import { buildPack } from './build-config'
 import { buildStart } from './steps'
+import { buildCJS } from './configs/build-cjs'
+import { buildES } from './configs/build-es'
+import { buildIIFE } from './configs/build-iife'
+import { buildStyles } from './configs/build-style'
 
 async function build() {
-  try {
-    buildStart()
+  buildStart()
 
-    await Promise.all([buildPack('es'), buildPack('cjs'), buildPack('iife')])
-  } catch (error) {
-    return Promise.reject(error)
-  }
+  await Promise.all([buildCJS(), buildES(), buildIIFE(), buildStyles()])
 }
 
 build().catch((error: Error) => {
