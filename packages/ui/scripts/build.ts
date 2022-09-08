@@ -1,4 +1,4 @@
-import { buildStart } from './steps'
+import { buildEnd, buildStart } from './steps'
 import { buildCJS } from './configs/build-cjs'
 import { buildES } from './configs/build-es'
 import { buildIIFE } from './configs/build-iife'
@@ -8,6 +8,8 @@ async function build() {
   buildStart()
 
   await Promise.all([buildCJS(), buildES(), buildIIFE(), buildStyles()])
+
+  buildEnd()
 }
 
 build().catch((error: Error) => {
