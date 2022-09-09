@@ -1,8 +1,17 @@
 {
   "name": "roshan-ui",
+  "description": "Fast and modern UI library for Vue 3",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "build": "tsx scripts/build.ts"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.mjs",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "dependencies": {
     "@vueuse/core": "^9.2.0"
