@@ -57,7 +57,6 @@
     "vite-plugin-windicss": "^1.8.8",
     "vue": "^3.2.39",
     "vue-eslint-parser": "^9.1.0",
-    "vue-loader": "^17.0.0",
     "windicss": "^3.5.6"
   },
   "peerDependencies": {
