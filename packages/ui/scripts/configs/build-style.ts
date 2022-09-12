@@ -4,21 +4,20 @@ import { fileURLToPath } from 'node:url'
 
 import { buildPack, createBuildConfig } from '../build-config'
 
-export function buildStyles() {
+const entry = fileURLToPath(new URL('../../src/style.ts', import.meta.url))
+
+export function buildStyle() {
   return buildPack(
     defu(
       {
         build: {
-          lib: {
-            entry: fileURLToPath(new URL('../../src/style.ts', import.meta.url)),
-          },
           outDir: 'dist/style',
           assetsDir: './',
           sourcemap: false,
         },
         plugins: [windicss()],
       },
-      createBuildConfig('cjs')
+      createBuildConfig(entry, 'cjs')
     )
   )
 }

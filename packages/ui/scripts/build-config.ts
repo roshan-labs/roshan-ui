@@ -3,20 +3,21 @@ import { build, InlineConfig } from 'vite'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import vue from '@vitejs/plugin-vue'
 
-import * as pkg from '../package.json'
+import { dependencies, peerDependencies } from '../package.json'
 
-const dependencies = [...Object.keys(pkg.dependencies), ...Object.keys(pkg.peerDependencies)]
-const external = { external: dependencies }
+const deps = [...Object.keys(dependencies), ...Object.keys(peerDependencies)]
+const external = { external: deps }
 
-export function createBuildConfig(format: 'cjs' | 'iife' | 'es'): InlineConfig {
-  const isESM = ['es'].includes(format)
+export const uiEntry = fileURLToPath(new URL('../src/index.ts', import.meta.url))
+
+export function createBuildConfig(entry: string, format: 'cjs' | 'iife' | 'es') {
   const config: InlineConfig = {
     build: {
       lib: {
-        entry: fileURLToPath(new URL('../src/index.ts', import.meta.url)),
+        entry,
         formats: [format],
         fileName: 'index',
-        /** iife/umd */
+        // For iife/umd
         name: 'Roshan',
       },
       rollupOptions:
@@ -30,7 +31,7 @@ export function createBuildConfig(format: 'cjs' | 'iife' | 'es'): InlineConfig {
               },
             }
           : external,
-      reportCompressedSize: false,
+      // reportCompressedSize: false,
       outDir: `dist/${format}`,
       sourcemap: true,
       cssCodeSplit: false,
@@ -39,14 +40,12 @@ export function createBuildConfig(format: 'cjs' | 'iife' | 'es'): InlineConfig {
         keep_fnames: true,
       },
     },
-    plugins: [
-      vue({
-        isProduction: true,
-      }),
-    ],
+    plugins: [vue({ isProduction: true })],
   }
 
-  isESM && config.plugins?.push(chunkSplitPlugin({ strategy: 'unbundle' }))
+  if (format === 'es') {
+    config.plugins?.push(chunkSplitPlugin({ strategy: 'unbundle' }))
+  }
 
   return config
 }

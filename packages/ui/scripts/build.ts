@@ -1,13 +1,20 @@
 import { buildEnd, buildStart } from './steps'
 import { buildCJS } from './configs/build-cjs'
-import { buildES } from './configs/build-es'
+import { buildESAndTypes } from './configs/build-es-and-types'
 import { buildIIFE } from './configs/build-iife'
-import { buildStyles } from './configs/build-style'
+import { buildStyle } from './configs/build-style'
+import { buildWindicssConfig } from './configs/build-windicss-config'
 
 async function build() {
   buildStart()
 
-  await Promise.all([buildCJS(), buildES(), buildIIFE(), buildStyles()])
+  await Promise.all([
+    buildCJS(),
+    buildESAndTypes(),
+    buildIIFE(),
+    buildStyle(),
+    buildWindicssConfig(),
+  ])
 
   buildEnd()
 }

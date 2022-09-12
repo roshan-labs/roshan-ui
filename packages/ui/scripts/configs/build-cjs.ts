@@ -1,5 +1,5 @@
-import { buildPack, createBuildConfig } from '../build-config'
+import { buildPack, createBuildConfig, uiEntry } from '../build-config'
 
-export function buildCJS() {
-  return buildPack(createBuildConfig('cjs'))
+export async function buildCJS() {
+  return buildPack(createBuildConfig(uiEntry, 'cjs'))
 }

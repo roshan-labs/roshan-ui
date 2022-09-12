@@ -6,6 +6,9 @@
     "strict": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "types": [
+      "unplugin-icons/types/vue"
+    ]
   }
 }
