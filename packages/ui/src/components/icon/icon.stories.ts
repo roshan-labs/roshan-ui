@@ -1,13 +1,13 @@
 import type { Meta, Story } from '@storybook/vue3'
 
-import NIcon from './icon.vue'
+import RIcon from './icon.vue'
 import IconAntDesign from '~icons/ant-design/ant-design-outlined'
 import IconSmileTwotone from '~icons/ant-design/smile-twotone'
 import IconCarFilled from '~icons/ant-design/car-filled'
 
 const meta: Meta = {
   title: '设计系统/通用/图标 Icon',
-  component: NIcon,
+  component: RIcon,
   argTypes: {
     color: {
       description: '颜色',
@@ -24,9 +24,22 @@ const meta: Meta = {
   },
 }
 
+const Template: Story = (args) => ({
+  components: {
+    RIcon,
+    IconAntDesign,
+  },
+  setup: () => ({ args }),
+  template: `
+    <r-icon v-bind="args">
+      <icon-ant-design />
+    </r-icon>
+  `,
+})
+
 export const Default: Story = (args) => ({
   components: {
-    NIcon,
+    RIcon,
     IconAntDesign,
     IconSmileTwotone,
     IconCarFilled,
@@ -49,18 +62,10 @@ Default.args = {
   color: '#2f54eb',
 }
 
-const Template: Story = (args) => ({
-  components: {
-    NIcon,
-    IconSmileTwotone,
-  },
-  setup: () => ({ args }),
-  template: `
-    <n-icon v-bind="args">
-      <icon-smile-twotone />
-    </n-icon>
-  `,
-})
+export const Rotate = Template.bind({})
+Rotate.args = {
+  rotate: 180,
+}
 
 export const Size = Template.bind({})
 Size.args = {
@@ -74,7 +79,7 @@ Color.args = {
 }
 
 export const Component: Story = (args) => ({
-  components: { NIcon },
+  components: { RIcon },
   setup: () => ({ args }),
   template: '<n-icon v-bind="args" />',
 })

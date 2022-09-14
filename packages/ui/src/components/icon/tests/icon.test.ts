@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import Icon from '../icon.vue'
 import IconAntDesign from '~icons/ant-design/ant-design-outlined'
+import * as stories from '../icon.stories'
 
 describe('Icon', () => {
   it('renders icon', () => {
@@ -14,5 +15,13 @@ describe('Icon', () => {
 
     expect(wrapper.classes()).toContain('r-icon')
     expect(wrapper.getComponent(IconAntDesign)).toBeTruthy()
+  })
+
+  it('rotate', () => {
+    const wrapper = mount(Icon, {
+      props: stories.Rotate.args,
+    })
+
+    expect(wrapper.attributes('style')).toContain('transform: rotate(180deg)')
   })
 })

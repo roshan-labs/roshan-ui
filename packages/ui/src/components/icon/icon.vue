@@ -15,6 +15,8 @@ import { addUnit } from '../../utils/helper'
 const props = defineProps({
   /** 颜色 */
   color: { type: String, default: '' },
+  /** Rotate by n degrees (not working in IE9) */
+  rotate: { type: Number },
   /** 尺寸 */
   size: { type: [String, Number], default: '' },
   /** 图标组件 */
@@ -30,6 +32,10 @@ const style = computed<StyleValue>(() => {
 
   if (props.size) {
     result.fontSize = addUnit(props.size)
+  }
+
+  if (typeof props.rotate === 'number') {
+    result.transform = `rotate(${props.rotate}deg)`
   }
 
   return result
