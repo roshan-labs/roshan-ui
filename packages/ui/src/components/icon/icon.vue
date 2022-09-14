@@ -1,5 +1,5 @@
 <template>
-  <i class="n-icon" :style="style">
+  <i class="r-icon" :style="style">
     <slot>
       <component :is="component" v-if="component" />
     </slot>
