@@ -8,15 +8,12 @@ const meta: Meta = {
   component: RIcon,
   argTypes: {
     color: {
-      description: '颜色',
       control: 'color',
     },
     size: {
-      description: '尺寸',
       control: 'number',
     },
     onClick: {
-      description: '点击图标时的回调',
       action: 'click',
     },
   },

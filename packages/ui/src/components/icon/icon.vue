@@ -1,5 +1,5 @@
 <template>
-  <i class="r-icon" :style="style">
+  <i :class="classes" :style="style">
     <slot>
       <component :is="component" v-if="component" />
     </slot>
@@ -19,6 +19,8 @@ const props = defineProps({
   rotate: { type: Number },
   /** Icon size */
   size: { type: [String, Number], default: '' },
+  /** Rotate icon with animation */
+  spin: { type: Boolean },
   /** Icon component */
   component: { type: Object as PropType<Component> },
 })
@@ -40,4 +42,9 @@ const style = computed<StyleValue>(() => {
 
   return result
 })
+
+const classes = computed(() => ({
+  'r-icon': true,
+  'r-icon-spin': props.spin,
+}))
 </script>
