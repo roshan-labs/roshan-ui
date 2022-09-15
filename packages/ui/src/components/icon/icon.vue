@@ -13,13 +13,13 @@ import { computed } from 'vue'
 import { addUnit } from '../../utils/helper'
 
 const props = defineProps({
-  /** 颜色 */
+  /** Icon color */
   color: { type: String, default: '' },
   /** Rotate by n degrees (not working in IE9) */
   rotate: { type: Number },
-  /** 尺寸 */
+  /** Icon size */
   size: { type: [String, Number], default: '' },
-  /** 图标组件 */
+  /** Icon component */
   component: { type: Object as PropType<Component> },
 })
 
