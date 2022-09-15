@@ -8,22 +8,18 @@ const meta: Meta = {
   component: RButton,
   argTypes: {
     type: {
-      description: '按钮类型',
       control: { type: 'select' },
       options: ['default', 'primary', 'dashed', 'text', 'link'],
     },
     htmlType: {
-      description: '设置 button 原生 type 值',
       control: { type: 'select' },
       options: ['button', 'submit', 'reset'],
     },
     shape: {
-      description: '设置按钮形状',
       control: { type: 'select' },
       options: ['default', 'circle', 'round'],
     },
     size: {
-      description: '设置按钮大小',
       control: { type: 'select' },
       options: ['large', 'middle', 'small'],
     },

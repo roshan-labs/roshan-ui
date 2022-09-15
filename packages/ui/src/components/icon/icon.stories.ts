@@ -13,9 +13,6 @@ const meta: Meta = {
     size: {
       control: 'number',
     },
-    onClick: {
-      action: 'click',
-    },
   },
 }
 
