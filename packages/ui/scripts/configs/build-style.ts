@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 import { buildPack, createBuildConfig } from '../build-config'
 
-const entry = fileURLToPath(new URL('../../src/style.ts', import.meta.url))
+const entry = fileURLToPath(new URL('../../src/styles/index.ts', import.meta.url))
 
 export function buildStyle() {
   return buildPack(

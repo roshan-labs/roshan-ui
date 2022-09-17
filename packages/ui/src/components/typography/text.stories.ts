@@ -19,3 +19,45 @@ export const Default = Template.bind({})
 Default.args = {
   default: 'Text',
 }
+
+export const Code = Template.bind({})
+Code.args = {
+  ...Default.args,
+  code: true,
+}
+
+export const Delete = Template.bind({})
+Delete.args = {
+  ...Default.args,
+  delete: true,
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  ...Default.args,
+  disabled: true,
+}
+
+export const Keyboard = Template.bind({})
+Keyboard.args = {
+  ...Default.args,
+  keyboard: true,
+}
+
+export const Mark = Template.bind({})
+Mark.args = {
+  ...Default.args,
+  mark: true,
+}
+
+export const Strong = Template.bind({})
+Strong.args = {
+  ...Default.args,
+  strong: true,
+}
+
+export const Italic = Template.bind({})
+Italic.args = {
+  ...Default.args,
+  italic: true,
+}

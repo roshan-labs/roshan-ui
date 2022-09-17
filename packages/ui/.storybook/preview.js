@@ -1,4 +1,6 @@
 import 'virtual:windi.css'
+import '../src/styles/global.css'
+
 import { breakpointsAntDesign } from '@vueuse/core'
 
 const customViewports = {}

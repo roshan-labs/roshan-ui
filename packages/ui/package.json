@@ -9,6 +9,8 @@
       "import": "./dist/es/index.mjs",
       "require": "./dist/cjs/index.js"
     },
+    "./style/*": "./dist/style/*",
+    "./windicss/*": "./dist/windicss/*",
     "./windicss": {
       "import": "./dist/windicss/index.mjs",
       "require": "./dist/windicss/index.js",
@@ -26,7 +28,8 @@
     "dist"
   ],
   "dependencies": {
-    "@vueuse/core": "^9.2.0"
+    "@vueuse/core": "^9.2.0",
+    "defu": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
@@ -48,7 +51,6 @@
     "@vitejs/plugin-vue": "^3.1.0",
     "@vue/test-utils": "^2.0.2",
     "babel-loader": "^8.2.5",
-    "defu": "^6.1.0",
     "eslint": "^8.23.0",
     "eslint-plugin-vue": "^9.4.0",
     "happy-dom": "^6.0.4",

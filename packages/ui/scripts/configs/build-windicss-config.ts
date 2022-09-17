@@ -12,7 +12,7 @@ export async function buildWindicssConfig() {
     build: {
       outDir: 'dist/windicss',
       rollupOptions: {
-        external: ['windicss/helpers', 'defu', 'module'],
+        external: ['windicss/helpers', 'module'],
       },
     },
   }
