@@ -29,13 +29,13 @@ describe('Text', () => {
     const del = wrapper.find('del')
 
     expect(del.exists()).toBe(true)
-    expect(del.classes()).toContain('r-text-delete')
+    expect(del.classes()).toContain('r-typography-delete')
   })
 
   it('disabled', () => {
     const wrapper = shallowMount(Text, { props: stories.Disabled.args })
 
-    expect(wrapper.classes()).toContain('r-text-disabled')
+    expect(wrapper.classes()).toContain('r-typography-disabled')
   })
 
   it('keboard', () => {

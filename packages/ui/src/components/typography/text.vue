@@ -1,7 +1,7 @@
 <template>
   <span :class="classes">
     <code v-if="code" class="r-typography-code"><slot /></code>
-    <del v-else-if="del" class="r-text-delete"><slot /></del>
+    <del v-else-if="del" class="r-typography-delete"><slot /></del>
     <kbd v-else-if="keyboard" class="r-text-keyboard"><slot /></kbd>
     <mark v-else-if="mark" class="r-text-mark"><slot /></mark>
     <strong v-else-if="strong" class="r-text-strong"><slot /></strong>
@@ -40,7 +40,7 @@ const del = computed(() => props.delete)
 
 const classes = computed(() => ({
   'r-typography': true,
-  'r-text-disabled': props.disabled,
+  'r-typography-disabled': props.disabled,
   'r-text-success': props.type === 'success',
   'r-text-secondary': props.type === 'secondary',
   'r-text-warning': props.type === 'warning',
@@ -57,11 +57,11 @@ const classes = computed(() => ({
   @apply text-[85%] leading-base px-[.4em] pt-[.2em] pb-[.1em] mx-[.2em] rounded-[3px] border border-solid border-[rgba(100,100,100,.2)] bg-[rgba(150,150,150,.1)];
 }
 
-.r-text-delete {
+.r-typography-delete {
   @apply line-through;
 }
 
-.r-text-disabled {
+.r-typography-disabled {
   @apply text-disabled-text select-none cursor-not-allowed;
 }
 
