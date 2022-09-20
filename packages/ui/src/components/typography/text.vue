@@ -1,17 +1,18 @@
 <template>
   <span :class="classes">
-    <code v-if="code" class="r-text-code"><slot /></code>
+    <code v-if="code" class="r-typography-code"><slot /></code>
     <del v-else-if="del" class="r-text-delete"><slot /></del>
     <kbd v-else-if="keyboard" class="r-text-keyboard"><slot /></kbd>
     <mark v-else-if="mark" class="r-text-mark"><slot /></mark>
     <strong v-else-if="strong" class="r-text-strong"><slot /></strong>
     <i v-else-if="italic"><slot /></i>
+    <u v-else-if="underline" class="r-text-underline"><slot /></u>
     <slot v-else />
   </span>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, PropType } from 'vue'
 
 const props = defineProps({
   /** 添加代码样式 */
@@ -28,23 +29,31 @@ const props = defineProps({
   strong: { type: Boolean },
   /** 是否斜体 */
   italic: { type: Boolean },
+  /** 文本类型 */
+  type: { type: String as PropType<'secondary' | 'success' | 'warning' | 'danger'>, default: '' },
+  /** 添加下划线样式 */
+  underline: { type: Boolean },
 })
 
 // 消除 delete 关键字 eslint 报错
 const del = computed(() => props.delete)
 
 const classes = computed(() => ({
-  'r-text': true,
+  'r-typography': true,
   'r-text-disabled': props.disabled,
+  'r-text-success': props.type === 'success',
+  'r-text-secondary': props.type === 'secondary',
+  'r-text-warning': props.type === 'warning',
+  'r-text-danger': props.type === 'danger',
 }))
 </script>
 
 <style>
-.r-text {
+.r-typography {
   @apply text-content break-words;
 }
 
-.r-text-code {
+.r-typography-code {
   @apply text-[85%] leading-base px-[.4em] pt-[.2em] pb-[.1em] mx-[.2em] rounded-[3px] border border-solid border-[rgba(100,100,100,.2)] bg-[rgba(150,150,150,.1)];
 }
 
@@ -66,5 +75,25 @@ const classes = computed(() => ({
 
 .r-text-strong {
   @apply font-semibold;
+}
+
+.r-text-success {
+  @apply text-success-base;
+}
+
+.r-text-secondary {
+  @apply text-[#00000073];
+}
+
+.r-text-warning {
+  @apply text-warning-base;
+}
+
+.r-text-danger {
+  @apply text-error-base;
+}
+
+.r-text-underline {
+  @apply underline;
 }
 </style>

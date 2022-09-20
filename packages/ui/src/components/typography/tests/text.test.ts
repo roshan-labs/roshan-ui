@@ -6,9 +6,14 @@ import * as stories from '../text.stories'
 
 describe('Text', () => {
   it('renders text', () => {
-    const wrapper = shallowMount(Text)
+    const wrapper = shallowMount(Text, {
+      slots: {
+        default: stories.Default.args?.default,
+      },
+    })
 
-    expect(wrapper.classes()).toContain('r-text')
+    expect(wrapper.classes()).toContain('r-typography')
+    expect(wrapper.text()).toBe(stories.Default.args?.default)
   })
 
   it('code', () => {
@@ -16,7 +21,7 @@ describe('Text', () => {
     const code = wrapper.find('code')
 
     expect(code.exists()).toBe(true)
-    expect(code.classes()).toContain('r-text-code')
+    expect(code.classes()).toContain('r-typography-code')
   })
 
   it('delete', () => {
@@ -47,5 +52,37 @@ describe('Text', () => {
 
     expect(strong.exists()).toBe(true)
     expect(strong.classes()).toContain('r-text-strong')
+  })
+
+  it('success', () => {
+    const wrapper = shallowMount(Text, { props: stories.Success.args })
+
+    expect(wrapper.classes()).toContain('r-text-success')
+  })
+
+  it('secondary', () => {
+    const wrapper = shallowMount(Text, { props: stories.Secondary.args })
+
+    expect(wrapper.classes()).toContain('r-text-secondary')
+  })
+
+  it('warning', () => {
+    const wrapper = shallowMount(Text, { props: stories.Warning.args })
+
+    expect(wrapper.classes()).toContain('r-text-warning')
+  })
+
+  it('danger', () => {
+    const wrapper = shallowMount(Text, { props: stories.Danger.args })
+
+    expect(wrapper.classes()).toContain('r-text-danger')
+  })
+
+  it('underline', () => {
+    const wrapper = shallowMount(Text, { props: stories.Underline.args })
+    const u = wrapper.find('u')
+
+    expect(u.exists()).toBe(true)
+    expect(u.classes()).toContain('r-text-underline')
   })
 })

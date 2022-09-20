@@ -31,6 +31,12 @@ const defultWindiConfig = defineConfig({
           6: '#2f54eb',
           7: '#1d39c4',
         },
+        success: {
+          base: '#52c41a',
+          hover: '#73d13d',
+          active: '#389e0d',
+          outline: 'rgba(82, 196, 26, .2)',
+        },
         error: {
           base: '#ff4d4f',
           hover: '#ff7875',
@@ -40,6 +46,7 @@ const defultWindiConfig = defineConfig({
         warning: {
           base: '#faad14',
           hover: '#ffc53d',
+          active: '#d48806',
           outline: 'rgb(250, 173, 20)',
         },
         disabled: {
@@ -52,6 +59,22 @@ const defultWindiConfig = defineConfig({
       minHeight: size,
       minWidth: {
         base: size.base,
+      },
+      fontFamily: {
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'apple color emoji',
+          'segoe ui emoji',
+          'Segoe UI Symbol',
+          'noto color emoji',
+        ],
       },
       fontSize: {
         sm: '12px',
