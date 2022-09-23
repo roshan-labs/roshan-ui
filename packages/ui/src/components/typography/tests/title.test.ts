@@ -17,6 +17,14 @@ describe('Title', () => {
     expect(wrapper.text()).toBe(stories.H1.args?.default)
   })
 
+  it('code', () => {
+    const wrapper = shallowMount(Title, { props: stories.Code.args })
+    const code = wrapper.find('code')
+
+    expect(code.exists()).toBe(true)
+    expect(code.classes()).toContain('r-typography-code')
+  })
+
   it('level', () => {
     const wrapper = shallowMount(Title, { props: stories.H2.args })
 

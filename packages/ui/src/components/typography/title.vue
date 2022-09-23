@@ -1,6 +1,6 @@
 <template>
   <component :is="element" class="r-typography r-title" :class="classes">
-    <code v-if="code"><slot /></code>
+    <code v-if="code" class="r-typography-code"><slot /></code>
     <del v-else-if="del" class="r-typography-delete"><slot /></del>
     <slot v-else />
   </component>
@@ -25,11 +25,7 @@ const element = computed(() => `h${props.level}`)
 const del = computed(() => props.delete)
 
 const classes = computed(() => ({
-  'r-title-h1': props.level === 1,
-  'r-title-h2': props.level === 2,
-  'r-title-h3': props.level === 3,
-  'r-title-h4': props.level === 4,
-  'r-title-h5': props.level === 5,
+  [`r-title-h${props.level}`]: true,
   'r-typography-disabled': props.disabled,
 }))
 </script>

@@ -21,8 +21,18 @@ const space = {
   lg: '24px',
 }
 
+const range = (size: number, startAt = 1) => Array.from(Array(size).keys()).map((i) => i + startAt)
+
 const defultWindiConfig = defineConfig({
   preflight: true,
+  safelist: [
+    // Typography title level
+    range(5).map((i) => `r-title-h${i}`),
+    // Button type
+    ['default', 'primary', 'dashed', 'text', 'link'].map((type) => `r-button-${type}`),
+    // Button danger
+    ['default', 'primary', 'dashed', 'text', 'link'].map((type) => `r-button-${type}-danger`),
+  ],
   theme: {
     extend: {
       colors: {

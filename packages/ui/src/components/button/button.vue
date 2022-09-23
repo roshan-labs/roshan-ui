@@ -32,7 +32,6 @@ const props = defineProps({
   /** 幽灵属性，使按钮背景透明 */
   ghost: { type: Boolean },
   /** 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 */
-  // eslint-disable-next-line vue/require-default-prop
   href: { type: String },
   /** 设置 button 原生 type 值 */
   htmlType: { type: String as PropType<'button' | 'submit' | 'reset'>, default: 'button' },
@@ -61,19 +60,11 @@ const hasDefault = ref(!!slots.default)
 const classes = computed(() => ({
   'r-button': true,
   // Type
-  'r-button-default': props.type === 'default',
-  'r-button-primary': props.type === 'primary',
-  'r-button-dashed': props.type === 'dashed',
-  'r-button-text': props.type === 'text',
-  'r-button-link': props.type === 'link',
+  [`r-button-${props.type}`]: true,
   // Block
   'r-button-block': props.block,
   // Danger
-  'r-button-default-danger': props.danger && props.type === 'default',
-  'r-button-primary-danger': props.danger && props.type === 'primary',
-  'r-button-dashed-danger': props.danger && props.type === 'dashed',
-  'r-button-text-danger': props.danger && props.type === 'text',
-  'r-button-link-danger': props.danger && props.type === 'link',
+  [`r-button-${props.type}-danger`]: props.danger,
   // Ghost
   'r-button-default-ghost': props.ghost && props.type === 'default',
   'r-button-primary-ghost': props.ghost && props.type === 'primary',
