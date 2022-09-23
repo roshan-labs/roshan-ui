@@ -59,3 +59,9 @@ Disabled.args = {
   ...H1.args,
   disabled: true,
 }
+
+export const Mark = Template.bind({})
+Mark.args = {
+  ...H1.args,
+  mark: true,
+}

@@ -2,6 +2,7 @@
   <component :is="element" class="r-typography r-title" :class="classes">
     <code v-if="code" class="r-typography-code"><slot /></code>
     <del v-else-if="del" class="r-typography-delete"><slot /></del>
+    <mark v-else-if="mark" class="r-typography-mark"><slot /></mark>
     <slot v-else />
   </component>
 </template>
@@ -18,6 +19,8 @@ const props = defineProps({
   disabled: { type: Boolean },
   /** 标题等级，相当于 h1、h2、h3、h4、h5 */
   level: { type: Number, default: 1 },
+  /** 添加标记样式 */
+  mark: { type: Boolean },
 })
 
 const element = computed(() => `h${props.level}`)

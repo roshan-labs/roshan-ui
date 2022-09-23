@@ -3,7 +3,7 @@
     <code v-if="code" class="r-typography-code"><slot /></code>
     <del v-else-if="del" class="r-typography-delete"><slot /></del>
     <kbd v-else-if="keyboard" class="r-text-keyboard"><slot /></kbd>
-    <mark v-else-if="mark" class="r-text-mark"><slot /></mark>
+    <mark v-else-if="mark" class="r-typography-mark"><slot /></mark>
     <strong v-else-if="strong" class="r-text-strong"><slot /></strong>
     <i v-else-if="italic"><slot /></i>
     <u v-else-if="underline" class="r-text-underline"><slot /></u>
@@ -69,7 +69,7 @@ const classes = computed(() => ({
   @apply text-[90%] leading-base pt-[.15em] px-[.4em] pb-[.1em] mx-[.2em] border border-b-2 border-solid border-[rgba(100,100,100,.2)] rounded-[3px] bg-[rgba(150,150,150,.06)];
 }
 
-.r-text-mark {
+.r-typography-mark {
   @apply p-0 bg-[#ffe58f];
 }
 

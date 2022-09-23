@@ -46,6 +46,14 @@ describe('Text', () => {
     expect(kbd.classes()).toContain('r-text-keyboard')
   })
 
+  it('mark', () => {
+    const wrapper = shallowMount(Text, { props: stories.Mark.args })
+    const mark = wrapper.find('mark')
+
+    expect(mark.exists()).toBe(true)
+    expect(mark.classes()).toContain('r-typography-mark')
+  })
+
   it('strong', () => {
     const wrapper = shallowMount(Text, { props: stories.Strong.args })
     const strong = wrapper.find('strong')
