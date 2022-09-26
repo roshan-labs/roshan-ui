@@ -55,3 +55,39 @@ Strong.args = {
   ...Default.args,
   strong: true,
 }
+
+export const Italic = Template.bind({})
+Italic.args = {
+  ...Default.args,
+  italic: true,
+}
+
+export const Success = Template.bind({})
+Success.args = {
+  ...Default.args,
+  type: 'success',
+}
+
+export const Secondary = Template.bind({})
+Secondary.args = {
+  ...Default.args,
+  type: 'secondary',
+}
+
+export const Warning = Template.bind({})
+Warning.args = {
+  ...Default.args,
+  type: 'warning',
+}
+
+export const Danger = Template.bind({})
+Danger.args = {
+  ...Default.args,
+  type: 'danger',
+}
+
+export const Underline = Template.bind({})
+Underline.args = {
+  ...Default.args,
+  underline: true,
+}
