@@ -65,3 +65,39 @@ Mark.args = {
   ...H1.args,
   mark: true,
 }
+
+export const Italic = Template.bind({})
+Italic.args = {
+  ...H1.args,
+  italic: true,
+}
+
+export const Success = Template.bind({})
+Success.args = {
+  ...H1.args,
+  type: 'success',
+}
+
+export const Secondary = Template.bind({})
+Secondary.args = {
+  ...H1.args,
+  type: 'secondary',
+}
+
+export const Warning = Template.bind({})
+Warning.args = {
+  ...H1.args,
+  type: 'warning',
+}
+
+export const Danger = Template.bind({})
+Danger.args = {
+  ...H1.args,
+  type: 'danger',
+}
+
+export const Underline = Template.bind({})
+Underline.args = {
+  ...H1.args,
+  underline: true,
+}

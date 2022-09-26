@@ -45,4 +45,50 @@ describe('Title', () => {
 
     expect(wrapper.classes()).toContain('r-typography-disabled')
   })
+
+  it('mark', () => {
+    const wrapper = shallowMount(Title, { props: stories.Mark.args })
+    const mark = wrapper.find('mark')
+
+    expect(mark.exists()).toBe(true)
+    expect(mark.classes()).toContain('r-typography-mark')
+  })
+
+  it('italic', () => {
+    const wrapper = shallowMount(Title, { props: stories.Italic.args })
+
+    expect(wrapper.find('i').exists()).toBe(true)
+  })
+
+  it('success', () => {
+    const wrapper = shallowMount(Title, { props: stories.Success.args })
+
+    expect(wrapper.classes()).toContain('r-typography-success')
+  })
+
+  it('secondary', () => {
+    const wrapper = shallowMount(Title, { props: stories.Secondary.args })
+
+    expect(wrapper.classes()).toContain('r-typography-secondary')
+  })
+
+  it('warning', () => {
+    const wrapper = shallowMount(Title, { props: stories.Warning.args })
+
+    expect(wrapper.classes()).toContain('r-typography-warning')
+  })
+
+  it('danger', () => {
+    const wrapper = shallowMount(Title, { props: stories.Danger.args })
+
+    expect(wrapper.classes()).toContain('r-typography-danger')
+  })
+
+  it('underline', () => {
+    const wrapper = shallowMount(Title, { props: stories.Underline.args })
+    const u = wrapper.find('u')
+
+    expect(u.exists()).toBe(true)
+    expect(u.classes()).toContain('r-typography-underline')
+  })
 })

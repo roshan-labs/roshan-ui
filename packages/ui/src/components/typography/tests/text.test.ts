@@ -43,7 +43,7 @@ describe('Text', () => {
     const kbd = wrapper.find('kbd')
 
     expect(kbd.exists()).toBe(true)
-    expect(kbd.classes()).toContain('r-text-keyboard')
+    expect(kbd.classes()).toContain('r-typography-keyboard')
   })
 
   it('mark', () => {
@@ -59,31 +59,31 @@ describe('Text', () => {
     const strong = wrapper.find('strong')
 
     expect(strong.exists()).toBe(true)
-    expect(strong.classes()).toContain('r-text-strong')
+    expect(strong.classes()).toContain('r-typography-strong')
   })
 
   it('success', () => {
     const wrapper = shallowMount(Text, { props: stories.Success.args })
 
-    expect(wrapper.classes()).toContain('r-text-success')
+    expect(wrapper.classes()).toContain('r-typography-success')
   })
 
   it('secondary', () => {
     const wrapper = shallowMount(Text, { props: stories.Secondary.args })
 
-    expect(wrapper.classes()).toContain('r-text-secondary')
+    expect(wrapper.classes()).toContain('r-typography-secondary')
   })
 
   it('warning', () => {
     const wrapper = shallowMount(Text, { props: stories.Warning.args })
 
-    expect(wrapper.classes()).toContain('r-text-warning')
+    expect(wrapper.classes()).toContain('r-typography-warning')
   })
 
   it('danger', () => {
     const wrapper = shallowMount(Text, { props: stories.Danger.args })
 
-    expect(wrapper.classes()).toContain('r-text-danger')
+    expect(wrapper.classes()).toContain('r-typography-danger')
   })
 
   it('underline', () => {
