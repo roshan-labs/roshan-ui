@@ -43,7 +43,7 @@ const del = computed(() => props.delete)
 
 const classes = computed(() => ({
   'r-typography-disabled': props.disabled,
-  [`r-typography-${props.type}`]: props.type !== '',
+  [`r-typography-${props.type}`]: !!props.type,
 }))
 
 const onClick = (e: Event) => {

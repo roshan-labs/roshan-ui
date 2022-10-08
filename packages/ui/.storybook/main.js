@@ -1,5 +1,6 @@
-const WindiCSS = require('vite-plugin-windicss').default
-const UnpluginIcon = require('unplugin-icons/vite')
+const { mergeConfig } = require('vite')
+const windicss = require('vite-plugin-windicss').default
+const unpluginIcon = require('unplugin-icons/vite')
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -12,17 +13,18 @@ module.exports = {
     storyStoreV7: true,
   },
   viteFinal(config) {
-    config.plugins.push(
-      WindiCSS(),
-      UnpluginIcon({
-        autoInstall: true,
-        iconCustomizer(_collection, _icon, props) {
-          // 重置图标样式
-          props.width = '1em'
-          props.height = '1em'
-        },
-      })
-    )
-    return config
+    return mergeConfig(config, {
+      plugins: [
+        windicss(),
+        unpluginIcon({
+          autoInstall: true,
+          iconCustomizer(_collection, _icon, props) {
+            // 重置图标样式
+            props.width = '1em'
+            props.height = '1em'
+          },
+        }),
+      ],
+    })
   },
 }

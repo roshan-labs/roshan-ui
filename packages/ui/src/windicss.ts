@@ -3,6 +3,7 @@ import { defineConfig } from 'windicss/helpers'
 import { defu } from 'defu'
 
 import { button } from '../src/components/button/style'
+import { divider } from '../src/components/divider/style'
 import { icon } from '../src/components/icon/style'
 import { typography } from '../src/components/typography/style'
 
@@ -137,23 +138,6 @@ const defaultConfig = defineConfig({
     },
   },
   shortcuts: {
-    // Divider
-    'n-divider':
-      'box-border p-0 m-0 text-content text-base tabular-nums leading-base list-none border-t border-solid',
-    'n-divider-horizontal': 'flex clear-both w-full min-w-full my-lg border-[#0000000f]',
-    'n-divider-vertical':
-      'relative top-[-0.06em] inline-block h-[0.9em] mx-xs align-middle border-t-0 border-l border-[rgba(0,0,0,.06)]',
-    'n-divider-dashed': 'bg-transparent border-[#0000000f] border-dashed',
-    'n-divider-text':
-      'my-md mx-0 text-content font-medium text-lg whitespace-nowrap text-center border-t-0 before:(content-[""] relative top-1/2 w-1/2 border-t border-solid border-[inherit] transform translate-y-1/2) after:(content-[""] relative top-1/2 w-1/2 border-t border-solid border-[inherit] transform translate-y-1/2)',
-    'n-divider-text-dashed': 'before:border-dashed after:border-dashed',
-    'n-divider-text-left': 'before:(top-1/2 w-[5%]) after:(top-1/2 w-[95%])',
-    'n-divider-text-right': 'before:(top-1/2 w-[95%]) after:(top-1/2 w-[5%])',
-    'n-divider-inner-text': 'inline-block px-[1em]',
-    'n-divider-plain': 'font-normal text-base',
-    'n-divider-orientation-left': 'before:w-0',
-    'n-divider-orientation-right': 'after:w-0',
-
     // Avatar
     'n-avatar':
       'inline-flex items-center justify-center w-base h-base rounded-1/2 overflow-hidden p-0 text-base text-white whitespace-nowrap align-middle bg-[#ccc]',
@@ -232,5 +216,5 @@ const defaultConfig = defineConfig({
 })
 
 export function extendWindiConfig(userConfig: FullConfig = {}) {
-  return defu(userConfig, button, icon, typography, defaultConfig)
+  return defu(userConfig, button, divider, icon, typography, defaultConfig)
 }

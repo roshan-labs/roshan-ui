@@ -8,7 +8,7 @@ export default defineConfig({
     icon({
       autoInstall: true,
       iconCustomizer(_collection, _icon, props) {
-        // 重置图标样式
+        // Reset icon style
         props.width = '1em'
         props.height = '1em'
       },
