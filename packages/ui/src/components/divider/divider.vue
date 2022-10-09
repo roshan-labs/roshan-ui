@@ -46,8 +46,6 @@ export default defineComponent({
       'r-divider-text-left': props.type === 'horizontal' && props.orientation === 'left',
       'r-divider-text-right': props.type === 'horizontal' && props.orientation === 'right',
       'r-divider-plain': props.plain,
-      'r-divider-orientation-left': hasOrientationLeft.value,
-      'r-divider-orientation-right': hasOrientationRight.value,
     }))
 
     const innerStyle = computed<StyleValue>(() => {
@@ -72,6 +70,54 @@ export default defineComponent({
       return style
     })
 
+    const leftLineStyle = computed<StyleValue>(() => {
+      const style: StyleValue = {}
+
+      if (props.dashed) {
+        style.borderStyle = 'dashed'
+      }
+
+      switch (props.orientation) {
+        case 'center':
+          style.width = '50%'
+          break
+        case 'left':
+          style.width = hasOrientationLeft.value ? '0' : '5%'
+          break
+        case 'right':
+          style.width = hasOrientationRight.value ? '100%' : '95%'
+          break
+        default:
+          break
+      }
+
+      return style
+    })
+
+    const rightLineStyle = computed<StyleValue>(() => {
+      const style: StyleValue = {}
+
+      if (props.dashed) {
+        style.borderStyle = 'dashed'
+      }
+
+      switch (props.orientation) {
+        case 'center':
+          style.width = '50%'
+          break
+        case 'left':
+          style.width = hasOrientationLeft.value ? '100%' : '95%'
+          break
+        case 'right':
+          style.width = hasOrientationRight.value ? '0' : '5%'
+          break
+        default:
+          break
+      }
+
+      return style
+    })
+
     return () => {
       hasSlot.value = filterChildren(slots.default?.()).length > 0
 
@@ -79,7 +125,15 @@ export default defineComponent({
         'div',
         { class: classes.value },
         props.type === 'horizontal' && hasSlot.value
-          ? h('span', { class: 'r-divider-inner-text', style: innerStyle.value }, slots.default?.())
+          ? [
+              h('span', { class: 'r-divider-line', style: leftLineStyle.value }),
+              h(
+                'span',
+                { class: 'r-divider-inner-text', style: innerStyle.value },
+                slots.default?.()
+              ),
+              h('span', { class: 'r-divider-line', style: rightLineStyle.value }),
+            ]
           : undefined
       )
     }

@@ -51,6 +51,12 @@ Right.args = {
   orientation: 'right',
 }
 
+export const OrientationDashed = Template.bind({})
+OrientationDashed.args = {
+  ...Center.args,
+  ...Dashed.args,
+}
+
 export const LeftOrientationMarginWithZero = Template.bind({})
 LeftOrientationMarginWithZero.args = {
   ...Left.args,
