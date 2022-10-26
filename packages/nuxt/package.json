@@ -1,3 +1,32 @@
 {
-  "name": "@roshan-ui/nuxt"
+  "name": "@roshan-ui/nuxt",
+  "version": "0.1.0",
+  "author": "Xiang Gao",
+  "license": "MIT",
+  "description": "Roshan UI for Nuxt3",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "dev": "nuxt dev playground",
+    "dev:build": "nuxt build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxt prepare playground"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@nuxt/kit": "3.0.0-rc.12"
+  }
 }
