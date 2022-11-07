@@ -1,6 +1,6 @@
-import Link from './link.vue'
-import Paragraph from './paragraph.vue'
-import Text from './text.vue'
-import Title from './title.vue'
+import RoLink from './link.vue'
+import RoParagraph from './paragraph.vue'
+import RoText from './text.vue'
+import RoTitle from './title.vue'
 
-export { Link, Paragraph, Text, Title }
+export { RoLink, RoParagraph, RoText, RoTitle }

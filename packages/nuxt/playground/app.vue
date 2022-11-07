@@ -1,3 +1,5 @@
 <template>
-  <div>Playground</div>
+  <div>
+    <ro-button>Button</ro-button>
+  </div>
 </template>

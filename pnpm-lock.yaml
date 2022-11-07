@@ -31,8 +31,10 @@ importers:
       '@nuxt/kit': 3.0.0-rc.13
       '@nuxt/module-builder': ^0.2.0
       nuxt: 3.0.0-rc.13
+      roshan-ui: workspace:*
     dependencies:
       '@nuxt/kit': 3.0.0-rc.13
+      roshan-ui: link:../ui
     devDependencies:
       '@nuxt/module-builder': 0.2.0
       nuxt: 3.0.0-rc.13

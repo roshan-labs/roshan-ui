@@ -4,4 +4,7 @@ import Module from '..'
 
 export default defineNuxtConfig({
   modules: [Module],
+  imports: {
+    autoImport: false,
+  },
 })

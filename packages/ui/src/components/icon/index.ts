@@ -1,3 +1,3 @@
-import Icon from './icon.vue'
+import RoIcon from './icon.vue'
 
-export { Icon }
+export { RoIcon }

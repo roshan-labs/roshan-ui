@@ -1,3 +1,3 @@
-import Divider from './divider.vue'
+import RoDivider from './divider.vue'
 
-export { Divider }
+export { RoDivider }
