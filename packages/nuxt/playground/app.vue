@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <ro-button>Button</ro-button>
+  <div style="padding: 8px">
+    <ro-button type="primary">Button</ro-button>
   </div>
 </template>
