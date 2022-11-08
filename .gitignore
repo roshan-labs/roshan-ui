@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 .nuxt
+.output
 .idea
 .vscode
 *.suo

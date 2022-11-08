@@ -1,7 +1,16 @@
 import { useNuxt } from '@nuxt/kit'
 
-export const useStyle = () => {
+import type { ModuleOptions } from '../types'
+
+export const useStyle = (options: ModuleOptions) => {
   const nuxt = useNuxt()
 
-  nuxt.options.css.push('roshan-ui/style/index.css')
+  switch (options.style) {
+    case 'css':
+      nuxt.options.css.push('roshan-ui/style/index.css')
+      break
+
+    default:
+      break
+  }
 }

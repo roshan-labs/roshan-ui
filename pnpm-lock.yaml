@@ -30,6 +30,7 @@ importers:
     specifiers:
       '@nuxt/kit': 3.0.0-rc.13
       '@nuxt/module-builder': ^0.2.0
+      '@nuxt/schema': 3.0.0-rc.13
       nuxt: 3.0.0-rc.13
       nuxt-windicss: ^2.5.3
       roshan-ui: workspace:*
@@ -39,6 +40,7 @@ importers:
       roshan-ui: link:../ui
     devDependencies:
       '@nuxt/module-builder': 0.2.0
+      '@nuxt/schema': 3.0.0-rc.13
       nuxt: 3.0.0-rc.13
 
   packages/ui:

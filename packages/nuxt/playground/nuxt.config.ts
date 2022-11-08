@@ -1,9 +1,10 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
-import NuxtModule from '..'
-
 export default defineNuxtConfig({
-  modules: [NuxtModule],
+  modules: ['@roshan-ui/nuxt'],
+  roshan: {
+    style: 'css',
+  },
   imports: {
     autoImport: false,
   },
