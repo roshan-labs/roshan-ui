@@ -2,8 +2,8 @@ import { defineNuxtModule } from '@nuxt/kit'
 
 import type { ModuleOptions } from './types'
 import { name, version } from '../package.json'
-import { useStyle } from './composables/use-style'
 import { useComponents } from './composables/use-components'
+import { useStyle } from './composables/use-style'
 
 export { ModuleOptions }
 
@@ -20,7 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
     style: 'windicss',
   },
   setup(options) {
-    useStyle(options)
     useComponents()
+    useStyle(options)
   },
 })

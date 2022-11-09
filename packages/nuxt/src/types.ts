@@ -1,3 +1,3 @@
 export interface ModuleOptions {
-  style?: 'css' | 'windicss'
+  style?: 'css' | 'windicss' | false
 }

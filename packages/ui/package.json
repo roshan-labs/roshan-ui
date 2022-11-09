@@ -8,14 +8,21 @@
   "exports": {
     ".": {
       "import": "./dist/es/index.mjs",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
     },
-    "./style/*": "./dist/style/*",
-    "./windicss/*": "./dist/windicss/*",
     "./windicss": {
       "import": "./dist/windicss/index.mjs",
       "require": "./dist/windicss/index.js",
       "types": "./dist/windicss/windicss.d.ts"
+    },
+    "./style/*": "./dist/style/*"
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/types/index.d.ts"],
+      "windicss": ["./dist/windicss/windicss.d.ts"],
+      "style": ["./dist/style/*"]
     }
   },
   "scripts": {
